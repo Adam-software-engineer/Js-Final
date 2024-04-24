@@ -8,18 +8,19 @@ const getCollection = async (dbName, collectionName) => {
   return client.db(dbName).collection(collectionName);
 };
 
-// letting user see all the menu items.
+//-----//
+// food truck menu items
+
 router.get("/", async (_, Res) => {
   const collection = await getCollection("FoodTruckApi", "Menu"); // working with the Events collection
   const MenuItems = await collection.find({}).toArray();
 
-  // making all the _id and turning them into normal id's
-  const UpdatedMenuItems = MenuItems.map((MI) => {
-    const { _id, ...rest } = MI;
-    return { id: _id, ...rest };
-  });
+  const FormatEvents = MenuItems.map((menu) => ({
+    id: menu._id,
+    name: menu.name,
+  }));
 
-  Res.json(UpdatedMenuItems);
+  Res.json(FormatEvents);
 });
 
 // letting the admin add menu items
@@ -27,7 +28,7 @@ router.post("/", async (Req, Res) => {
   const { Name, Discription, Price } = Req.body;
   const collection = await getCollection("FoodTruckApi", "Menu");
 
-  const Result = await collection.insertOne({ Name, Discription, Price });
+  const Result = await collection.insertMany({ Name, Discription, Price });
   Res.json({ message: "Updated Menu" });
 });
 
@@ -68,7 +69,9 @@ router.delete("/:id", async (Req, Res) => {
 });
 
 //--------//
-// Events Api grabs.
+//--------//
+
+// food truck events
 
 router.get("/", async (_, Res) => {
   const collection = await getCollection("FoodTruckApi", "Events"); // working with the menu collection
@@ -81,12 +84,6 @@ router.get("/", async (_, Res) => {
 
   Res.json(FormatEvents);
 });
-
-//------//
-// POST /api/events - This route should allow the food truck owner to add a new event. The request body should contain the event name, location, dates, and hours.
-// PUT /api/events/:id - This route should allow the food truck owner to update an event. The route should accept an event ID as a parameter and update the event's name, location, dates, and hours.
-// DELETE /api/events/:id - This route should allow the food truck owner to delete an event. The route should accept an event ID as a parameter and remove the event from the list of events.
-//------//
 
 router.get("/:id", async (Req, Res) => {
   try {
@@ -102,6 +99,60 @@ router.get("/:id", async (Req, Res) => {
     console.error("error fetching events", error);
 
     Res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.post("/", async (Request, Response) => {
+  try {
+    const { name, location, date, hour } = Request.body;
+    const collection = await getCollection("FoodTruckApi", "Events");
+
+    const result = await collection.insertMany({ name, location, date, hour });
+
+    Response.json({ Messages: "Updated events" });
+  } catch (error) {
+    console.error("error inserting the event", error);
+    Response.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/:id", async (Request, Response) => {
+  try {
+    const { id } = Request.params;
+    const collection = await getCollection("FoodTruckApi", "Events");
+
+    const { name, location } = Request.body;
+
+    const event = await collection.findOneAndUpdate(
+      id,
+      { name, location },
+      { new: true },
+    );
+
+    Response.json(event);
+  } catch (error) {
+    console.error("error updating event", error);
+    Response.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.delete("/:id", async (Request, Response) => {
+  try {
+    const { id } = Request.params;
+    const collection = await getCollection("FoodTruckApi", "Events");
+
+    const DeletedItem = await collection.findOne({ id });
+
+    if (!DeletedItem) {
+      return Response.status(404).json({ error: "Could not find item id" });
+    }
+
+    await collection.deleteOne({ id });
+
+    Response.json({ Message: "Menu item deleted thank you" });
+  } catch (error) {
+    console.error("error deleteing the event", error);
+    Response.status(500).json({ error: "internal server error" });
   }
 });
 
