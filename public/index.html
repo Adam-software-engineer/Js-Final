@@ -1,31 +1,67 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Truck Name - Menu</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
     <script src="site.js" defer></script>
   </head>
-  <body>
+  <body class="wrapper">
     <div id="app">
-      <header>
-        <h2>Header test</h2>
+      <header class="header">
+        <img src="images/Food-Truck-Logo.png" alt="Food Food Truck Logo" width="60" height="48">
+        <h1 class="heading">Food Truck Name</h1>
       </header>
-      <nav id="Nav">
+      <nav id="Nav" class="topnav">
         <ul>
           <li>
-            <a class="MenuNavItem" href="Menu.html">Menu</a>
-            <a class="ContactNavItem" href="Contact.html">Contact</a>
             <!--The admin Nav Item might not stay might change too a password protect option.-->
-            <a class="AdminNavItem" href="Admin.html">Admin</a>
+            <a class="AdminNavItem" href="Admin.html">Staff</a>
+            <a class="ContactNavItem" href="Contact.html">Contact Us</a>
+            <a class="MenuNavItem" href="Menu.html">Food Menu</a>
           </li>
         </ul>
       </nav>
-      <main>
-        <h3>test</h3>
-        <p>test</p>
+      <main class="row">
+        <div class="leftcolumn">
+          <div class="card">
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Dec 7, 2017</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+          </div>
+          <div class="card">
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Sep 2, 2017</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+          </div>
+        </div>
+        <div class="rightcolumn">
+          <div class="card">
+            <h2>About Me</h2>
+            <div class="fakeimg" style="height:100px;">Image</div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+          </div>
+          <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg"><p>Image</p></div>
+            <div class="fakeimg"><p>Image</p></div>
+            <div class="fakeimg"><p>Image</p></div>
+          </div>
+          <div class="card">
+            <h3>Follow Me</h3>
+            <p>Some text..</p>
+          </div>
+        </div>
       </main>
+      <footer class="footer">
+        <h2>Footer</h2>
+      </footer>
     </div>
   </body>
 </html>
