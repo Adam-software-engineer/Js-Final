@@ -1,0 +1,212 @@
+/*James Ruddat css XD*/
+
+html 
+{
+    background-color: whitesmoke;
+    overflow: scroll;
+}
+
+body 
+{
+    font-family: Verdana, 'Arial Black', serif;
+    font-size: 1em;
+    color: black;
+    padding: 3px;
+}
+
+header
+{
+    background-color: lightgrey;
+    color: black;
+    padding: 1px;
+    border: 14px;
+    border-style: none none solid none;
+    border-color: rgb(98,20,131);
+}
+
+nav
+{
+    padding: 2px;
+    color: rgb(216,28,55);
+}
+
+main
+{
+    background-color: white;
+    color: black;
+    padding: 2px;
+}
+
+section
+{
+    background-color: white;
+    color: black;
+    padding: 15px;
+}
+
+aside
+{
+    background-color: white;
+    color: black;
+    padding: 15px;
+}
+
+figure
+{
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    padding: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+footer
+{
+    background-color: rgb(247,247,247);
+    color: whitesmoke;
+    padding: 2px;
+}
+
+address
+{
+    background-color: rgb(247,247,247);
+    color: rgb(129,67,156);
+    padding: 2px;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+img
+{
+    border: 1px;
+    border-style: none;
+    border-color: black;
+}
+
+/*Links*/
+a:link
+{
+    line-height: 1.6;
+    text-decoration: none;
+    color: rgb(98,20,131);
+}
+
+a:visited 
+{
+    text-decoration: underline;
+    color: gray;
+}
+
+a:active
+{
+    background-color: gray;
+}
+
+a:hover 
+{
+    color: black;
+}
+
+/*Text*/
+ul
+{
+    padding: 0%;
+    background-color: white;
+    color: rgb(129,67,156);
+}
+
+li a 
+{
+    color: rgb(129,67,156);
+    display: block;
+    padding: 3px;
+    text-decoration: none;
+    text-align: center;
+}
+
+li a:visited 
+{
+    text-decoration: underline;
+    color: black;
+}
+
+li a:hover
+{
+    background-color: rgb(129,67,156);
+    color: whitesmoke;
+}
+
+li a:active
+{
+    background-color: rgb(129,67,156);
+}
+
+h1 
+{
+    padding: 2px;
+    font-size: 1.65em;
+}
+
+h2 
+{
+    padding: 2px;
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+h3
+{
+    font-size: 1em;
+    font-style: italic;
+}
+
+p
+{
+    padding: 3px;
+}
+
+/*Classes and IDs*/
+#wrapper
+{
+    text-decoration: solid;
+    width: 1000px;
+    margin-left: 100px;
+    margin-right: auto;
+    border: 3px;
+    border-color: rgb(98,20,131);
+    border-style: solid;
+}
+
+#sun
+{
+    float: left;
+    width: 40%;
+    padding: 15px;
+}
+
+#moon 
+{
+    float: right;
+    width: 40%;
+    padding: 15px;
+}
+
+#stars
+{
+    float: left;
+    width: 20%;
+    height: 700px;
+    padding: 0px;
+}
+
+.class 
+{
+    clear: both;
+}
+
+*
+{
+    box-sizing: border-box;
+    overflow: hidden;
+}
