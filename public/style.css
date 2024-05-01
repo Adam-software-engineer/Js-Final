@@ -1,11 +1,4 @@
-/* James Ruddat css XD */
-
-.colorplate {
-color: rgb(21,82,100);
-color: rgb(237,29,36);
-color: rgb(189,190,192);
-color: rgb(99, 35, 29);
-}
+/* James css XD */
 
 html {
     background-color: #222831; /* background color */
@@ -13,7 +6,7 @@ html {
 body {
     font-family: Verdana, 'Arial Black', serif;
     font-size: 1em;
-    color: whitesmoke;
+    color: lightgray;
 }
 header {
     padding: 1px;
@@ -21,19 +14,6 @@ header {
 }
 nav {
     background-color: #393e46;
-}
-footer {
-    color: whitesmoke;
-    padding: 2px;
-    background-color: rgb(237,29,36);
-    text-align: center;
-    border-radius: 10px;
-}
-address {
-    color: rgb(129,67,156);
-    padding: 2px;
-    text-align: center;
-    font-size: 0.8em;
 }
 img {
     border: 1px;
@@ -47,21 +27,14 @@ ul {
     margin: 0px;
 }
 a {
-    color: whitesmoke;
-    display: block;
-    padding: 3px;
+    color: lightgray;
     text-decoration: none;
     text-align: center;
 }
 a:hover {
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    color: rgb(170, 0, 0);
 }
 .heading h1 {
-    padding: 2px;
     margin-right: 25px;
     font-size: 1.6em;
     font-style: italic;
@@ -73,9 +46,6 @@ h2 {
 h3 {
     font-size: 1em;
     font-style: italic;
-}
-p {
-    padding: 3px;
 }
 
 /* Classes and IDs */
@@ -91,24 +61,37 @@ p {
     display: block;
     text-decoration: none;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 /* nav links */
 .topnav a {
     float: right;
     color: white;
     padding: 14px 35px;
-    border-bottom: 1px solid #393e46;
 }
-/* hovered on link */
+.topnav img {
+    float: left;
+    margin: 5px 15px;
+}
+
+.topnav h2 {
+    float: left;
+    margin: 10px 25px;
+    color: white;
+}
 .topnav a:hover {
-    border-radius: 10px;
-    background-color: rgb(134, 21, 19);
-    border-bottom: 1px solid rgb(51, 18, 15);
+    border-radius: 5px;
+    background-color: rgb(135, 0, 0);
 }
-/* Clicked on link */
-.topnav a:active {
-    background-color: rgb(129,67,156);
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 1000px;
+}
+  
+.sticky + .content {
+    padding-top: 60px;
 }
 
 
@@ -123,22 +106,23 @@ p {
   .rightcolumn {
     float: left;
     width: 25%;
-    padding-left: 20px;
+    padding-left: 15px;
   }
   
   /* Fake image */
   .fakeimg {
-    background-color: #393e46;
+    background-color: darkgray;
     width: 100%;
     padding: 20px;
+    color: black;
   }
   
   /* Add a card effect for articles */
   .card {
     background-color: #303841;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
   }
   
   /* Clear floats after the columns */
@@ -150,10 +134,11 @@ p {
   
   /* Footer */
   .footer {
-    padding: 20px;
     text-align: center;
     background: #393e46;
-    margin-top: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 1px;
   }
   
 /* Responsive layout */

@@ -1,12 +1,49 @@
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Page</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchMobile - Home</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.ico">
+    <link rel="stylesheet" href="style.css">
     <script src="site.js" defer></script>
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="wrapper">
+    <div id="app">
+      <header class="header">
+        <!--Womp nothing in the header???-->
+      </header>
+      <nav id="Nav" class="topnav">
+        <ul>
+          <li>
+            <!--The admin Nav Item might not stay might change too a password protect option.-->
+            <a class="AdminNavItem" href="Admin.html">Staff</a>
+            <a class="ContactNavItem" href="Contact.html">Contact Us</a>
+            <a class="MenuNavItem" href="Menu.html">Food Menu</a>
+            <a class="HomeItem" href="index.html">Home</a>
+            <img src="images/LogoWhite.png" alt="Truck Logo" width="35" height="35">
+            <h2>MunchMobile</h2>
+          </li>
+        </ul>
+      </nav>
+      <main class="row">
+        <div>
+          <div class="card">
+            <h2>TITLE HEADING</h2>
+            <h5>Web Application, Dec 7, 2017</h5>
+            <form action="/action_page.php">
+              <label for="txtName">Name:</label><br>
+              <input type="text" name="txtEmail"><br>
+              <label for="txtEmail">Email:</label><br>
+              <input type="text" name="txtEmail"><br><br>
+              
+              <input type="submit" value="Submit">
+            </form> 
+          </div>
+      </main>
+      <footer class="footer">
+        <p><small>Copyright &copy;2024 - Created by three dudes and a truck. Find them on gethub: <a href="https://github.com/AdamSoftware/Js-Final">Here</a></small></p>
+      </footer>
+    </div>
   </body>
 </html>
