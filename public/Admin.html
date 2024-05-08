@@ -1,12 +1,67 @@
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Page</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchMobile - Admin</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.ico">
+    <link rel="stylesheet" href="style.css">
     <script src="site.js" defer></script>
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="wrapper">
+    <div id="app">
+      <header class="header">
+        <!--Womp nothing in the header???-->
+      </header>
+      <nav id="Nav" class="topnav">
+        <ul>
+          <li>
+            <!--The admin Nav Item might not stay might change too a password protect option.-->
+            <a class="AdminNavItem" href="Admin.html">Staff</a>
+            <a class="ContactNavItem" href="Contact.html">Contact Us</a>
+            <a class="MenuNavItem" href="Menu.html">Food Menu</a>
+            <a class="HomeItem" href="index.html">Home</a>
+            <img src="images/LogoWhite.png" alt="Truck Logo" width="35" height="35">
+            <h2>MunchMobile</h2>
+          </li>
+        </ul>
+      </nav>
+      <main class="row">
+        <div>
+          <div class="card">
+            <h1>Admin</h1>
+            <p>Admin Page /admin - Create an admin page that allows the food truck owner to manage the menu and events. The admin page should include forms to add, update, and delete menu items and events.</p>
+            <div class="left">
+              <h2>Add Menu Item</h2>
+              <form action="#" method="post" class="form">
+                  <label for="itemName">Name:</label><br>
+                  <input type="text" id="itemName" name="itemName"><br>
+                  <label for="itemDescription">Description:</label><br>
+                  <textarea id="itemDescription" name="itemDescription"></textarea><br>
+                  <label for="itemPrice">Price:</label><br>
+                  <input type="text" id="itemPrice" name="itemPrice"><br>
+                  <input type="submit" value="Add Menu Item">
+              </form>
+            </div>
+            <div class="right">
+              <h2>Add Event</h2>
+              <form action="#" method="post" class="form">
+                  <label for="eventName">Name:</label><br>
+                  <input type="text" id="eventName" name="eventName"><br>
+                  <label for="eventLocation">Location:</label><br>
+                  <input type="text" id="eventLocation" name="eventLocation"><br>
+                  <label for="eventDate">Date:</label><br>
+                  <input type="text" id="eventDate" name="eventDate"><br>
+                  <label for="eventHours">Hours:</label><br>
+                  <input type="text" id="eventHours" name="eventHours"><br>
+                  <input type="submit" value="Add Event">
+              </form>
+            </div>
+          </div>
+      </main>
+      <footer class="footer">
+        <p><small>Copyright &copy;2024 - Created by three dudes and a truck. Find them on gethub: <a href="https://github.com/AdamSoftware/Js-Final">Here</a></small></p>
+      </footer>
+    </div>
   </body>
 </html>

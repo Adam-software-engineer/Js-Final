@@ -25,14 +25,22 @@ img {
 ul {
     padding: 0px;
     margin: 0px;
+    list-style-type: none
 }
+ol {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 30px;
+    list-style-type: none
+}
+
 a {
-    color: lightgray;
+    color: #4CAF50;
     text-decoration: none;
     text-align: center;
 }
 a:hover {
-    color: rgb(170, 0, 0);
+    color: #327536;
 }
 .heading h1 {
     margin-right: 25px;
@@ -67,13 +75,12 @@ h3 {
 .topnav a {
     float: right;
     color: white;
-    padding: 14px 35px;
+    padding: 14px 30px;
 }
 .topnav img {
     float: left;
     margin: 5px 15px;
 }
-
 .topnav h2 {
     float: left;
     margin: 10px 25px;
@@ -81,7 +88,7 @@ h3 {
 }
 .topnav a:hover {
     border-radius: 5px;
-    background-color: rgb(135, 0, 0);
+    background-color: #45a049;
 }
 
 .sticky {
@@ -89,69 +96,171 @@ h3 {
     top: 0;
     width: 1000px;
 }
-  
 .sticky + .content {
     padding-top: 60px;
 }
 
+/* Form style */
+.form {
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+    background-color: #222831;
+    border-radius: 5px;
+}
+.form label {
+    display: block;
+}
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.form input[type="submit"]:hover {
+    background-color: #45a049;
+}
 
 /* Create two unequal columns that floats next to each other */
-/* Left column */
 .leftcolumn {   
     float: left;
     width: 75%;
-  }
-  
-  /* Right column */
-  .rightcolumn {
+}
+.rightcolumn {
     float: left;
     width: 25%;
     padding-left: 15px;
-  }
-  
-  /* Fake image */
-  .fakeimg {
+}
+
+.left {   
+    float: left;
+    width: 50%;
+}
+.right {
+    float: left;
+    width: 50%;
+    padding-left: 5px;
+}
+
+/* Fake image */
+.fakeimg {
     background-color: darkgray;
     width: 100%;
     padding: 20px;
     color: black;
-  }
-  
-  /* Add a card effect for articles */
-  .card {
+}
+
+/* Add a card effect for articles */
+.card {
     background-color: #303841;
     padding: 15px;
     margin-top: 15px;
     border-radius: 5px;
-  }
-  
-  /* Clear floats after the columns */
-  .row::after {
+}
+
+/* Clear floats after the columns */
+.row::after {
     content: "";
     display: table;
     clear: both;
-  }
-  
-  /* Footer */
-  .footer {
+}
+
+.footer {
     text-align: center;
     background: #393e46;
     margin-top: 10px;
     border-radius: 5px;
     padding: 1px;
-  }
-  
+}
+
 /* Responsive layout */
-@media screen and (max-width: 800px) {
-    .leftcolumn, .rightcolumn {   
-      width: 100%;
-      padding: 0;
+@media screen and (max-width: 1000px) {
+    .leftcolumn, .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+    .wrapper {
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 800px;
+    }
+    .sticky + .content {
+        padding-top: 60px;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
     .topnav a {
-      float: none;
-      width: 100%;
+        width: 100%;
+        padding: 8px;
+    }
+    .topnav h2 {
+        display: block;
+        margin: 5px;
+    }
+    .wrapper {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 600px;
+    }
+    .sticky + .content {
+        padding-top: 60px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 400px;
+    }
+    .sticky + .content {
+        padding-top: 60px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    /* Further adjustments for very small screens */
+    .topnav {
+        overflow: hidden;
+    }
+    .topnav a {
+        width: 100%;
     }
 }
 
