@@ -11,8 +11,8 @@ app.get("/", (_, response) => {
   response.sendfile(path.join(Root, "index.html"));
 });
 
-app.use("/api/menu", require("./ApiRoutes.js"));
-app.use("/api/events", require("./ApiRoutes.js"));
+app.use("/api/Menu", require("./ApiRoutes.js"));
+app.use("/api/Events", require("./ApiRoutes.js"));
 
 const message = `Server running: http://localhost:${port}`;
 app.listen(port, () => console.log(message));

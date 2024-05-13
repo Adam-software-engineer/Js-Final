@@ -1,4 +1,14 @@
-// main site javascript
+/// Add the sticky class to the nav when you scroll
+var navbar = document.getElementById("Nav");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
 
 async () => {
   const button = document.querySelector("button");
@@ -26,11 +36,11 @@ async () => {
       ul.appendChild(li);
 
       const span = document.createElement("span");
-      (span.textContent = Name, Description, Price, imageURL);
+      (span.textContent = Name), Description, Price, imageURL;
 
       li.appendChild(span);
     });
-  
+  };
   const displayEventItems = (EventMenu) => {
     ul.innerHTML = "";
     EventMenu.forEach(({ Name, Location, Date, Hours, imageURL }) => {
@@ -38,11 +48,10 @@ async () => {
       ul.appendChild(li);
 
       const span = document.createElement("span");
-      (span.textContent = Name, Location, Date, Hours, imageURL);
+      (span.textContent = Name), Location, Date, Hours, imageURL;
 
       li.appendChild(span);
     });
-
   };
   displayEventItems(await getEventItems());
   displayMenuItems(await getMenuItems());
@@ -52,14 +61,3 @@ async () => {
 window.onscroll = function () {
   myFunction();
 };
-var navbar = document.getElementById("Nav");
-var sticky = navbar.offsetTop;
-
-// Add the sticky class to the nav when you scroll
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
