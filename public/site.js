@@ -16,14 +16,14 @@ async () => {
   const ul = document.querySelector("ul");
 
   const getMenuItems = async () => {
-    const response = await fetch("/api/menu");
+    const response = await fetch("/FoodTruckApi/Menu");
     const FoodMenu = await response.json();
 
     return FoodMenu;
   };
 
   const getEventItems = async () => {
-    const response = await fetch("/api/events");
+    const response = await fetch("/FoodTruckApi/Events");
     const EventMenu = await response.json();
 
     return EventMenu;

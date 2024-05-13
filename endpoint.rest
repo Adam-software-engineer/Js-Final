@@ -2,17 +2,14 @@
 
 ### Get todos
 
-GET http://localhost:{{port}}/api/Events
+GET http://localhost:3000/FoodTruckApi/Events
 
 ### Create a todo
 
-GET http://localhost:{{port}}/api/Menu Content-Type: application/json
+GET http://localhost:3000/FoodTruckApi/Menu
 
 {
 "item": "Finish the Assignment"
-
 }
 
-### Toggle completed status of a todo
 
-PUT http://localhost:{{port}}/api/todos/1
