@@ -154,6 +154,12 @@ h3 {
     padding-left: 5px;
 }
 
+.menucard {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
 /* Fake image */
 .fakeimg {
     background-color: darkgray;
