@@ -11,7 +11,6 @@ app.get("/", (_, response) => {
   response.sendfile(path.join(Root, "index.html"));
 });
 
-// this is all the calls too the apiroutes code too the DB
 app.use("/api/menu", require("./ApiRoutes.js"));
 app.use("/api/events", require("./ApiRoutes.js"));
 
