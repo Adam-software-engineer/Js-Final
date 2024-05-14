@@ -10,20 +10,24 @@ function myFunction() {
   }
 }
 
+//----//
+// this is all the db stuff and things //
+//---//
+
 async () => {
   const button = document.querySelector("button");
   const input = document.querySelector("input");
   const ul = document.querySelector("ul");
 
   const getMenuItems = async () => {
-    const response = await fetch("/FoodTruckApi/Menu");
-    const FoodMenu = await response.json();
+    const Res = await fetch("/api/Menu");
+    const FoodMenu = await Res.json();
 
     return FoodMenu;
   };
 
   const getEventItems = async () => {
-    const response = await fetch("/FoodTruckApi/Events");
+    const response = await fetch("/api/Events");
     const EventMenu = await response.json();
 
     return EventMenu;
@@ -36,7 +40,8 @@ async () => {
       ul.appendChild(li);
 
       const span = document.createElement("span");
-      (span.textContent = Name), Description, Price, imageURL;
+      // Concatenate values using template literals
+      span.textContent = `${Name}, ${Description}, ${Price}, ${imageURL}`;
 
       li.appendChild(span);
     });

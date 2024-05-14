@@ -15,7 +15,7 @@ router.get("/", async (_, Res) => {
   const collection = await getCollection("FoodTruckApi", "Menu"); // working with the Events collection
   const MenuItems = await collection.find({}).toArray();
 
-  Res.json(FormatEvents);
+  Res.json(MenuItems);
 });
 
 // letting the admin add menu items
@@ -72,7 +72,7 @@ router.get("/", async (_, Res) => {
   const collection = await getCollection("FoodTruckApi", "Events"); // working with the menu collection
   const events = await collection.find({}).toArray();
 
-  Res.json(FormatEvents);
+  Res.json(events);
 });
 
 router.get("/:id", async (Req, Res) => {
