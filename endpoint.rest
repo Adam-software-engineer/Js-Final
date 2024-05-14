@@ -1,15 +1,8 @@
-### Variables @port = 3000
+@port = 3000;  
 
-### Get todos
 
-GET http://localhost:3000/FoodTruckApi/Events
+GET http://localhost:{{port}}
 
 ### Create a todo
 
-GET http://localhost:3000/FoodTruckApi/Menu
-
-{
-"item": "Finish the Assignment"
-}
-
-
+GET http://localhost:{{port}}/api/Events 

@@ -15,11 +15,6 @@ router.get("/", async (_, Res) => {
   const collection = await getCollection("FoodTruckApi", "Menu"); // working with the Events collection
   const MenuItems = await collection.find({}).toArray();
 
-  const FormatEvents = MenuItems.map((menu) => ({
-    id: menu._id,
-    name: menu.name,
-  }));
-
   Res.json(FormatEvents);
 });
 
@@ -76,11 +71,6 @@ router.delete("/:id", async (Req, Res) => {
 router.get("/", async (_, Res) => {
   const collection = await getCollection("FoodTruckApi", "Events"); // working with the menu collection
   const events = await collection.find({}).toArray();
-
-  const FormatEvents = events.map((event) => ({
-    id: event._id,
-    name: event.name,
-  }));
 
   Res.json(FormatEvents);
 });
