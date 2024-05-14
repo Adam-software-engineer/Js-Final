@@ -92,26 +92,26 @@ router.get("/:id", async (Req, Res) => {
   }
 });
 
-router.post("/", async (Request, Response) => {
+router.post("/", async (Req, Res) => {
   try {
-    const { name, location, date, hour } = Request.body;
+    const { name, location, date, hour } = Req.body;
     const collection = await getCollection("FoodTruckApi", "Events");
 
     const result = await collection.insertMany({ name, location, date, hour });
 
-    Response.json({ Messages: "Updated events" });
+    Res.json({ Messages: "Updated events" });
   } catch (error) {
     console.error("error inserting the event", error);
-    Response.status(500).json({ error: "Internal server error" });
+    Res.status(500).json({ error: "Internal server error" });
   }
 });
 
-router.put("/:id", async (Request, Response) => {
+router.put("/:id", async (Req, Res) => {
   try {
-    const { id } = Request.params;
+    const { id } = Req.params;
     const collection = await getCollection("FoodTruckApi", "Events");
 
-    const { name, location } = Request.body;
+    const { name, location } = Reqt.body;
 
     const event = await collection.findOneAndUpdate(
       id,

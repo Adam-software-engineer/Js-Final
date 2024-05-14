@@ -17,7 +17,7 @@ function myFunction() {
 async () => {
   const button = document.querySelector("button");
   const input = document.querySelector("input");
-  const ul = document.querySelector("ul");
+  const p = document.querySelector("p");
 
   const getMenuItems = async () => {
     const Res = await fetch("/api/Menu");
@@ -37,11 +37,14 @@ async () => {
     ul.innerHTML = "";
     FoodMenu.forEach(({ Name, Description, Price, imageURL }) => {
       const li = document.createElement("li");
-      ul.appendChild(li);
+      p.appendChild(li);
 
       const span = document.createElement("span");
       // Concatenate values using template literals
-      span.textContent = `${Name}, ${Description}, ${Price}, ${imageURL}`;
+      span.textContent = Name;
+      span.textContent = Description;
+      span.textContent = Price;
+      span.textContent = imageURL;
 
       li.appendChild(span);
     });
