@@ -1,11 +1,36 @@
-@port = 3000
+@port = 3000 
+@Menuid = 6644f0a86bf9089c775fa94e
+@Eventsid = 6644f50d6bf9089c775fa952
 
 
 GET http://localhost:{{port}}/api/Events
 
-### Create a todo
+####
+
+
+PUT http://localhost:{{port}}/api/Events/{{Eventsid}}
+
+#####
+
+DELETE http://localhost:{{port}}/api/Events/{{Eventsid}}
+
+####
 
 GET http://localhost:{{port}}/api/Menu 
 
+######
 
-## watch video on mangoDB on ryans site tommrow morning.
+GET http://localhost:{{port}}/api/Menu/{{Menuid}}
+
+###### this does not work for a test don't know how to test this
+
+POST http://localhost:{{port}}/api/Menu
+
+
+##### this should put a new 
+
+PUT http://localhost:{{port}}/api/Menu/{{Menuid}}
+
+####
+
+DELETE http://localhost:{{port}}/api/Menu/{{Menuid}}

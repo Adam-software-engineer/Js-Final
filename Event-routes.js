@@ -48,44 +48,54 @@ router.post("/", async (Req, Res) => {
   }
 });
 
+// this is throwing a 24 char string error nto a 12 byte array 
 router.put("/:id", async (Req, Res) => {
-  try {
-    const { id } = Req.params;
-    const collection = await getCollection("FoodTruckApi", "EventsData");
+  const { id } = Req.params;
+  const collection = await getCollection("FoodTruckApi", "EvemtsData");
 
-    const { name, location } = Reqt.body;
+  const MenuItems = await collection.findOne({ _id: new ObjectId(id) });
+  
+  const { name, date, location, totalhours } = Req.body;
 
-    const event = await collection.findOneAndUpdate(
-      id,
-      { name, location },
-      { new: true },
-    );
-
-    Response.json(event);
-  } catch (error) {
-    console.error("error updating event", error);
-    Response.status(500).json({ error: "Internal server error" });
+  if (!MenuItems) {
+    return Res.status(404).json({ error: "Events item not found" });
   }
+
+  const UpdateFields = {
+    Name: name,
+    date: date,
+    location: location,
+    totalhours: totalhours
+  };
+
+  const result = await collection.updateOne(
+    { _id: new ObjectId(id) },
+    { $set: UpdateFields }, // this might have to change too something else so that admin able to change all the items
+  );
+
+  Res.json({ Message: "Update complete thank you",id: "id", updateFields: UpdateFields }); // same goes here might have to change complete
 });
 
-router.delete("/:id", async (Request, Response) => {
-  try {
-    const { id } = Request.params;
-    const collection = await getCollection("FoodTruckApi", "EventsData");
+router.delete("/:id", async (Req, Res) => {
 
-    const DeletedItem = await collection.findOne({ id });
+  const { id } = Req.params;
+  const collection = await getCollection("FoodTruckApi", "EventsData");
 
-    if (!DeletedItem) {
-      return Response.status(404).json({ error: "Could not find item id" });
-    }
+  const deletedItem = await collection.findOne({ _id: new ObjectId(id) });
 
-    await collection.deleteOne({ id });
 
-    Response.json({ Message: "Menu item deleted thank you" });
-  } catch (error) {
-    console.error("error deleteing the event", error);
-    Response.status(500).json({ error: "internal server error" });
+  if (!ObjectId.isValid(id)) {
+    return Res.status(404).json({ error: "Could not find item id" });
   }
+  
+  await collection.deleteOne({ _id: new ObjectId(id) });
+  
+  if (!deletedItem) {
+    console.log("Item not found for ID:", id);
+    return Res.status(404).json({ error: "Events item not found" });
+  }
+  
+  Res.json({ Message: "Events item deleted thank you" });
 });
 
 module.exports = router;

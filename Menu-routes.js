@@ -11,6 +11,7 @@ const getCollection = async (dbName, collectionName) => {
 //-----//
 // food truck menu items
 
+// working
 router.get("/", async (_, Res) => {
   const collection = await getCollection("FoodTruckApi", "MenuData"); // working with the Events collection
   const MenuItems = await collection.find({}).toArray();
@@ -19,46 +20,64 @@ router.get("/", async (_, Res) => {
 });
 
 // letting the admin add menu items
+// I can't test this right now don't know how to in endpoint
 router.post("/", async (Req, Res) => {
-  const { Name, Discription, Price } = Req.body;
+  const { name, discription, price, iamgeurl } = Req.body;
   const collection = await getCollection("FoodTruckApi", "MenuData");
 
-  const Result = await collection.insertMany({ Name, Discription, Price });
+  const Result = await collection.insertMany({ name, discription, price, imageurl });
   Res.json({ message: "Updated Menu" });
 });
 
 // letting admin update the Menu items
+// this is still throing a error saying event can't be found but its working kind of
 router.put("/:id", async (Req, Res) => {
   const { id } = Req.params;
   const collection = await getCollection("FoodTruckApi", "MenuData");
 
   const MenuItems = await collection.findOne({ _id: new ObjectId(id) });
+  
+  const { name, imageUrl, description, price } = Req.body;
 
   if (!MenuItems) {
     return Res.status(404).json({ error: "Menu item not found" });
   }
 
-  const UpdateComplete = !MenuItems.complete;
+  const UpdateFields = {
+    Name: name,
+    imageUrl: imageUrl,
+    description: description,
+    price: price
+  };
+
   const result = await collection.updateOne(
     { _id: new ObjectId(id) },
-    { $set: { complete: UpdateComplete } }, // this might have to change too something else so that admin able to change all the items
+    { $set: UpdateFields }, // this might have to change too something else so that admin able to change all the items
   );
 
-  Res.json({ id: "_id", complete: UpdateComplete }); // same goes here might have to change complete
+  Res.json({ Message: "Update complete thank you",id: "id", updateFields: UpdateFields }); // same goes here might have to change complete
 });
 
+
+//this is working 
 router.delete("/:id", async (Req, Res) => {
   // letting admin delete a menu item
   const { id } = Req.params;
   const collection = await getCollection("FoodTruckApi", "MenuData");
 
-  const DeletedItem = await collection.findOne({ id });
+  const deletedItem = await collection.findOne({ _id: new ObjectId(id) });
 
-  if (!DeletedItem) {
+
+  if (!ObjectId.isValid(id)) {
     return Res.status(404).json({ error: "Could not find item id" });
   }
 
-  await collection.deleteOne({ id });
+  await collection.deleteOne({ _id: new ObjectId(id) });
+
+  if (!deletedItem) {
+    console.log("Item not found for ID:", id);
+    return res.status(404).json({ error: "Menu item not found" });
+  }
 
   Res.json({ Message: "Menu item deleted thank you" });
 });
