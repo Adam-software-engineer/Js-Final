@@ -132,6 +132,24 @@ h3 {
 .form input[type="submit"]:hover {
     background-color: #45a049;
 }
+.form input[type="button"] {
+    background-color: rgb(160, 0, 0);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.form input[type="button"]:hover {
+    background-color: rgb(121, 0, 0);
+}
+
+th, td {
+    border: none;
+    padding: 10px 20px;
+    border-bottom: 2px solid #45a049;
+    font-size: 14px;
+}
 
 /* Create two unequal columns that floats next to each other */
 .leftcolumn {   

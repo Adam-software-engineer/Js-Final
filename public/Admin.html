@@ -28,27 +28,67 @@
       </nav>
       <main class="row">
         <div>
-          <div class="card">
+          <div>
             <h1>Admin</h1>
             <p>Admin Page /admin - Create an admin page that allows the food truck owner to manage the menu and events. The admin page should include forms to add, update, and delete menu items and events.</p>
+            
+            
             <div class="left">
-              <h2>Add Menu Item</h2>
+              <table class="items">
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image URL</th>
+                  </tr>
+                  <tr>
+                    <td>Peter</td>
+                    <td><a href="#">Griffin</a></td> <!-- links them to auto fill the form with data when clicked -->
+                  </tr>
+                  <tr>
+                    <td>Test</td>
+                    <td><a href="#">Griffin</a></td>
+                  </tr>
+              </table>
+            </div>
+            <div class="right">
+              <table class="events">
+                  <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Hours</th>
+                  </tr>
+                  <tr>
+                    <td>Peter</td>
+                    <td><a href="#">Griffin</a></td>
+                  </tr>
+                  <tr>
+                    <td>Lois</td>
+                    <td><a href="#">Griffin</a></td>
+                  </tr>
+              </table>
+            </div>
+            <br>
+            <div class="left">
+              <h2>Menu Items</h2>
               <form action="#" method="post" class="form">
-                  <label for="itemName">Name:</label><br>
+                  <label for="itemName">Item Name:</label><br>
                   <input type="text" id="itemName" name="itemName"><br>
                   <label for="itemDescription">Description:</label><br>
-                  <textarea id="itemDescription" name="itemDescription"></textarea><br>
+                  <input type="text" id="itemDescription" name="itemDescription"></input><br>
                   <label for="itemPrice">Price:</label><br>
                   <input type="text" id="itemPrice" name="itemPrice"><br>
                   <label for="itemImage">Image URL:</label><br>
                   <input type="text" id="itemImage" name="itemImage"><br>
-                  <input type="submit" value="Add Menu Item">
+                  <input type="submit" value="Add/Update Menu Item">
+                  <input type="button" value="Delete Menu Item">
               </form>
             </div>
             <div class="right">
-              <h2>Add Event</h2>
+              <h2>Events</h2>
               <form action="#" method="post" class="form">
-                  <label for="eventName">Name:</label><br>
+                  <label for="eventName">Event Name:</label><br>
                   <input type="text" id="eventName" name="eventName"><br>
                   <label for="eventLocation">Location:</label><br>
                   <input type="text" id="eventLocation" name="eventLocation"><br>
@@ -56,9 +96,8 @@
                   <input type="text" id="eventDate" name="eventDate"><br>
                   <label for="eventHours">Hours:</label><br>
                   <input type="text" id="eventHours" name="eventHours"><br>
-                  <label for="eventImage">Image URL:</label><br>
-                  <input type="text" id="eventImage" name="eventImage"><br>
-                  <input type="submit" value="Add Event">
+                  <input type="submit" value="Add/Update Event">
+                  <input type="button" value="Delete Event">
               </form>
             </div>
           </div>
