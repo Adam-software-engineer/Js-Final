@@ -1,8 +1,8 @@
-@port = 3000;  
+@port = 3000
 
 
-GET http://localhost:{{port}}/api/Menu
+GET http://localhost:{{port}}/api/Events
 
 ### Create a todo
 
-GET http://localhost:{{port}}/api/Events 
+GET http://localhost:{{port}}/api/Menu 

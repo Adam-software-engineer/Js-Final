@@ -11,8 +11,9 @@ app.get("/", (_, response) => {
   response.sendfile(path.join(Root, "index.html"));
 });
 
-app.use("/api/Menu", require("./api-routes.js"));
-app.use("/api/Events", require("./api-routes.js"));
+// this is now seperated so that they are going to different routing files
+app.use("/api/Menu", require("./Menu-routes.js"));
+app.use("/api/Events", require("./Event-routes.js"));
 
 const message = `Server running: http://localhost:${port}`;
 app.listen(port, () => console.log(message));
