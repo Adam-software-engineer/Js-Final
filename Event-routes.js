@@ -11,7 +11,7 @@ const getCollection = async (dbName, collectionName) => {
 // food truck events
 
 router.get("/", async (_, Res) => {
-  const collection = await getCollection("FoodTruckApi", "Events"); // working with the menu collection
+  const collection = await getCollection("FoodTruckApi", "EventsData"); // working with the menu collection
   const events = await collection.find({}).toArray();
 
   Res.json(events);
@@ -20,7 +20,7 @@ router.get("/", async (_, Res) => {
 router.get("/:id", async (Req, Res) => {
   try {
     const { id } = Req.params;
-    const collection = await getCollection("FoodTruckApi", "Events");
+    const collection = await getCollection("FoodTruckApi", "EventsData");
 
     const events = await collection.findbyid({ id });
 
@@ -37,7 +37,7 @@ router.get("/:id", async (Req, Res) => {
 router.post("/", async (Req, Res) => {
   try {
     const { name, location, date, hour } = Req.body;
-    const collection = await getCollection("FoodTruckApi", "Events");
+    const collection = await getCollection("FoodTruckApi", "EventsData");
 
     const result = await collection.insertMany({ name, location, date, hour });
 
@@ -51,7 +51,7 @@ router.post("/", async (Req, Res) => {
 router.put("/:id", async (Req, Res) => {
   try {
     const { id } = Req.params;
-    const collection = await getCollection("FoodTruckApi", "Events");
+    const collection = await getCollection("FoodTruckApi", "EventsData");
 
     const { name, location } = Reqt.body;
 
@@ -71,7 +71,7 @@ router.put("/:id", async (Req, Res) => {
 router.delete("/:id", async (Request, Response) => {
   try {
     const { id } = Request.params;
-    const collection = await getCollection("FoodTruckApi", "Events");
+    const collection = await getCollection("FoodTruckApi", "EventsData");
 
     const DeletedItem = await collection.findOne({ id });
 

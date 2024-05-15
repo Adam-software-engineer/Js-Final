@@ -12,7 +12,7 @@ const getCollection = async (dbName, collectionName) => {
 // food truck menu items
 
 router.get("/", async (_, Res) => {
-  const collection = await getCollection("FoodTruckApi", "Menu"); // working with the Events collection
+  const collection = await getCollection("FoodTruckApi", "MenuData"); // working with the Events collection
   const MenuItems = await collection.find({}).toArray();
 
   Res.json(MenuItems);
@@ -21,7 +21,7 @@ router.get("/", async (_, Res) => {
 // letting the admin add menu items
 router.post("/", async (Req, Res) => {
   const { Name, Discription, Price } = Req.body;
-  const collection = await getCollection("FoodTruckApi", "Menu");
+  const collection = await getCollection("FoodTruckApi", "MenuData");
 
   const Result = await collection.insertMany({ Name, Discription, Price });
   Res.json({ message: "Updated Menu" });
@@ -30,7 +30,7 @@ router.post("/", async (Req, Res) => {
 // letting admin update the Menu items
 router.put("/:id", async (Req, Res) => {
   const { id } = Req.params;
-  const collection = await getCollection("FoodTruckApi", "Menu");
+  const collection = await getCollection("FoodTruckApi", "MenuData");
 
   const MenuItems = await collection.findOne({ _id: new ObjectId(id) });
 
@@ -50,7 +50,7 @@ router.put("/:id", async (Req, Res) => {
 router.delete("/:id", async (Req, Res) => {
   // letting admin delete a menu item
   const { id } = Req.params;
-  const collection = await getCollection("FoodTruckApi", "Menu");
+  const collection = await getCollection("FoodTruckApi", "MenuData");
 
   const DeletedItem = await collection.findOne({ id });
 
