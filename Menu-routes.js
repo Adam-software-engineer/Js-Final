@@ -63,9 +63,4 @@ router.delete("/:id", async (Req, Res) => {
   Res.json({ Message: "Menu item deleted thank you" });
 });
 
-//--------//
-//--------//
-
-// food truck events
-
 module.exports = router;

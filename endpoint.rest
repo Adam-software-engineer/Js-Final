@@ -6,3 +6,6 @@ GET http://localhost:{{port}}/api/Events
 ### Create a todo
 
 GET http://localhost:{{port}}/api/Menu 
+
+
+## watch video on mangoDB on ryans site tommrow morning.
