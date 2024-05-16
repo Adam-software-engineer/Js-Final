@@ -6,7 +6,7 @@
     <title>MunchMobile - Admin</title>
     <link rel="icon" type="image/x-icon" href="images/Favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <script src="site.js" defer></script>
+    <script type="module" src="admin.js"></script>
   </head>
   <body class="wrapper">
     <div id="app">
@@ -34,60 +34,41 @@
             
             
             <div class="left">
-              <table class="items">
+              <table class="menuTable">
                   <tr>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Price</th>
-                    <th>Image URL</th>
-                  </tr>
-                  <tr>
-                    <td>Peter</td>
-                    <td><a href="#">Griffin</a></td> <!-- links them to auto fill the form with data when clicked -->
-                  </tr>
-                  <tr>
-                    <td>Test</td>
-                    <td><a href="#">Griffin</a></td>
                   </tr>
               </table>
             </div>
             <div class="right">
-              <table class="events">
+              <table class="eventsTable">
                   <tr>
                     <th>Name</th>
                     <th>Location</th>
                     <th>Date</th>
                     <th>Hours</th>
                   </tr>
-                  <tr>
-                    <td>Peter</td>
-                    <td><a href="#">Griffin</a></td>
-                  </tr>
-                  <tr>
-                    <td>Lois</td>
-                    <td><a href="#">Griffin</a></td>
-                  </tr>
-              </table>
+                </table>
             </div>
             <br>
             <div class="left">
               <h2>Menu Items</h2>
-              <form action="#" method="post" class="form">
+              <form action="#" class="eventform">
                   <label for="itemName">Item Name:</label><br>
                   <input type="text" id="itemName" name="itemName"><br>
                   <label for="itemDescription">Description:</label><br>
                   <input type="text" id="itemDescription" name="itemDescription"></input><br>
                   <label for="itemPrice">Price:</label><br>
                   <input type="text" id="itemPrice" name="itemPrice"><br>
-                  <label for="itemImage">Image URL:</label><br>
-                  <input type="text" id="itemImage" name="itemImage"><br>
                   <input type="submit" value="Add/Update Menu Item">
                   <input type="button" value="Delete Menu Item">
               </form>
             </div>
             <div class="right">
               <h2>Events</h2>
-              <form action="#" method="post" class="form">
+              <form action="#" class="menuform">
                   <label for="eventName">Event Name:</label><br>
                   <input type="text" id="eventName" name="eventName"><br>
                   <label for="eventLocation">Location:</label><br>
@@ -96,7 +77,8 @@
                   <input type="text" id="eventDate" name="eventDate"><br>
                   <label for="eventHours">Hours:</label><br>
                   <input type="text" id="eventHours" name="eventHours"><br>
-                  <input type="submit" value="Add/Update Event">
+                  <input id="add" type="submit" value="Add">
+                  <input id="update" type="submit" value="update">
                   <input type="button" value="Delete Event">
               </form>
             </div>

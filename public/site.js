@@ -14,56 +14,46 @@ function myFunction() {
 // this is all the db stuff and things //
 //---//
 
-async () => {
-  const button = document.querySelector("button");
-  const input = document.querySelector("input");
-  const p = document.querySelector("p");
-
-  const getMenuItems = async () => {
-    const Res = await fetch("/api/Menu");
-    const FoodMenu = await Res.json();
-
-    return FoodMenu;
-  };
-
-  const getEventItems = async () => {
-    const response = await fetch("/api/Events");
-    const EventMenu = await response.json();
-
-    return EventMenu;
-  };
-
-  const displayMenuItems = (FoodMenu) => {
-    ul.innerHTML = "";
-    FoodMenu.forEach(({ Name, Description, Price, imageURL }) => {
-      const li = document.createElement("li");
-      p.appendChild(li);
-
-      const span = document.createElement("span");
-      // Concatenate values using template literals
-      span.textContent = Name;
-      span.textContent = Description;
-      span.textContent = Price;
-      span.textContent = imageURL;
-
-      li.appendChild(span);
-    });
-  };
-  const displayEventItems = (EventMenu) => {
-    ul.innerHTML = "";
-    EventMenu.forEach(({ Name, Location, Date, Hours, imageURL }) => {
-      const li = document.createElement("li");
-      ul.appendChild(li);
-
-      const span = document.createElement("span");
-      (span.textContent = Name), Location, Date, Hours, imageURL;
-
-      li.appendChild(span);
-    });
-  };
-  displayEventItems(await getEventItems());
-  displayMenuItems(await getMenuItems());
+export const fetchMenuData = async () => {
+  try {
+    const res = await fetch("/api/Menu");
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const foodMenu = await res.json();
+    return foodMenu;
+  } catch (error) {
+    console.error("Failed to fetch menu data:", error);
+    return null;
+  }
 };
+
+export const fetchEventData = async () => {
+  try {
+    const res = await fetch("/api/Events");
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const events = await res.json();
+    return events;
+  } catch (error) {
+    console.error("Failed to fetch event data:", error);
+    return null;
+  }
+};
+
+export const getAllData = async () => {
+  const menuData = await fetchMenuData();
+  const eventData = await fetchEventData();
+
+  if (menuData && eventData) {
+    return { menu: menuData, events: eventData };
+  } else {
+    return null;
+  }
+};
+
+
 
 // CSS JS for webpage nev
 window.onscroll = function () {

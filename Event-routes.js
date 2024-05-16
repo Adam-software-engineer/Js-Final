@@ -36,10 +36,10 @@ router.get("/:id", async (Req, Res) => {
 
 router.post("/", async (Req, Res) => {
   try {
-    const { name, location, date, hour } = Req.body;
+    const { name, location, date, totalhours } = Req.body;
     const collection = await getCollection("FoodTruckApi", "EventsData");
 
-    const result = await collection.insertMany({ name, location, date, hour });
+    const result = await collection.insertMany({ name, location, date, totalhours });
 
     Res.json({ Messages: "Updated events" });
   } catch (error) {
@@ -48,7 +48,7 @@ router.post("/", async (Req, Res) => {
   }
 });
 
-// this is throwing a 24 char string error nto a 12 byte array 
+
 router.put("/:id", async (Req, Res) => {
   const { id } = Req.params;
   const collection = await getCollection("FoodTruckApi", "EvemtsData");
