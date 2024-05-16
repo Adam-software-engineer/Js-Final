@@ -181,7 +181,7 @@ th, td {
 /* Fake image */
 .fakeimg {
     background-color: darkgray;
-    width: 100%;
+    width: auto;
     padding: 20px;
     color: black;
 }
@@ -192,6 +192,11 @@ th, td {
     padding: 15px;
     margin-top: 15px;
     border-radius: 5px;
+}
+
+.card img {
+    Height: auto;
+    width: 100%;
 }
 
 /* Clear floats after the columns */
