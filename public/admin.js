@@ -19,19 +19,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     events.forEach(event => {
       const row = eventsTable.insertRow();
       row.innerHTML = `
-        <td><a href="#" class="event-link" data-name="${event.name}" data-location="${event.location}" data-date="${event.date}" data-hours="${event.totalhours}" data-imageurl="${event.imageurl}">${event.name}</a></td>
+        <td><a href="#" class="event-link" data-name="${event.name}" data-location="${event.location}" data-date="${event.date}" data-hours="${event.totalhours}" data-imageurl="${event.imageurl}"  data-id="${event._id}">${event.name}</a></td>
         <td>${event.location}</td>
         <td>${event.date}</td>
         <td>${event.totalhours}</td>
+        <td style="display:none;">${event._id}</td>
       `;
     });
 
     menu.forEach(menu => {
       const row = menuTable.insertRow();
       row.innerHTML = `
-        <td><a href="#" class="menu-link" data-name="${menu.name}" data-description="${menu.description}" data-price="${menu.price}" data-imageurl="${menu.imageurl}">${menu.name}</a></td>
+        <td><a href="#" class="menu-link" data-name="${menu.name}" data-description="${menu.description}" data-price="${menu.price}" data-imageurl="${menu.imageurl}"  data-id="${menu._id}">${menu.name}</a></td>
         <td>${menu.description}</td>
         <td>${menu.price}</td>
+        <td style="display:none;">${menu._id}</td>
       `;
     });
 
@@ -39,7 +41,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     eventLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        const { _id, name, location, date, hours, imageurl } = link.dataset;
+        const { id, name, location, date, hours, imageurl } = link.dataset;
+        document.getElementById('eventid').value = id;
         document.getElementById('eventName').value = name;
         document.getElementById('eventLocation').value = location;
         document.getElementById('eventDate').value = date;
@@ -52,7 +55,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     menuLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const {name, description, price, imageurl} = link.dataset;
+            const {id, name, description, price, imageurl} = link.dataset;
+            document.getElementById('menuid').value = id;
             document.getElementById('itemName').value = name;
             document.getElementById('itemDescription').value = description;
             document.getElementById('itemPrice').value = price;
@@ -199,9 +203,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     EventDeleteButton.addEventListener('click', async (e) => {
+        
+        const id =  document.getElementById('eventid').value;
+
+        console.log(id);
+
 
         try{
-            const id = e.target.dataset._id
             const response = await fetch(`/api/Events/${id}`, {
                 method: 'DELETE',
                 headers: {
@@ -218,8 +226,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     MenuDeleteButton.addEventListener('click', async (e) => {
 
+        const id =  document.getElementById('menuid').value;
+
+
+
         try{
-            const id = e.target.dataset._id
             const response = await fetch(`/api/Menu/${id}`, {
                 method: 'DELETE',
                 headers: {

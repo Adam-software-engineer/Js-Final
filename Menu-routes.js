@@ -61,25 +61,28 @@ router.put("/:id", async (Req, Res) => {
 
 //this is working 
 router.delete("/:id", async (Req, Res) => {
-  // letting admin delete a menu item
-  const { id } = Req.params;
-  const collection = await getCollection("FoodTruckApi", "MenuData");
+  try {
+    const { id } = Req.params;
 
-  const deletedItem = await collection.findOne({ _id: new ObjectId(id) });
+    if (!ObjectId.isValid(id)) {
+      return Res.status(400).json({ error: "Invalid ID format" });
+    }
 
+    const collection = await getCollection("FoodTruckApi", "MenuData");
+    const itemToDelete = await collection.findOne({ _id: new ObjectId(id) });
 
-  if (!ObjectId.isValid(id)) {
-    return Res.status(404).json({ error: "Could not find item id" });
+    if (!itemToDelete) {
+      console.log("Item not found for ID:", id);
+      return Res.status(404).json({ error: "Menu item not found" });
+    }
+
+    await collection.deleteOne({ _id: new ObjectId(id) });
+
+    Res.json({ message: "Menu item deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting the menu item", error);
+    Res.status(500).json({ error: "Internal server error" });
   }
-
-  await collection.deleteOne({ _id: new ObjectId(id) });
-
-  if (!deletedItem) {
-    console.log("Item not found for ID:", id);
-    return res.status(404).json({ error: "Menu item not found" });
-  }
-
-  Res.json({ Message: "Menu item deleted thank you" });
 });
 
 module.exports = router;

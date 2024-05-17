@@ -77,26 +77,27 @@ router.put("/:id", async (Req, Res) => {
   Res.json({ Message: "Update complete thank you",id: "_id", updateFields: UpdateFields }); // same goes here might have to change complete
 });
 
+
 router.delete("/:id", async (Req, Res) => {
 
-  const { _id } = Req.params;
+  const { id } = Req.params;
   const collection = await getCollection("FoodTruckApi", "EventsData");
 
-  const deletedItem = await collection.findOne({ _id: new ObjectId(_id) });
+  const deletedItem = await collection.findOne({ _id: new ObjectId(id) });
 
 
-  if (!ObjectId.isValid(_id)) {
+  if (!ObjectId.isValid(id)) {
     return Res.status(404).json({ error: "Could not find item id" });
   }
-  
+
   await collection.deleteOne({ _id: new ObjectId(id) });
-  
+
   if (!deletedItem) {
     console.log("Item not found for ID:", id);
-    return Res.status(404).json({ error: "Events item not found" });
+    return res.status(404).json({ error: "Menu item not found" });
   }
-  
-  Res.json({ Message: "Events item deleted thank you" });
+
+  Res.json({ Message: "Menu item deleted thank you" });
 });
 
 module.exports = router;
