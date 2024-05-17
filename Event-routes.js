@@ -39,11 +39,11 @@ router.post("/", async (Req, Res) => {
     const { name, location, date, totalhours } = Req.body;
     const collection = await getCollection("FoodTruckApi", "EventsData");
 
-    const result = await collection.insertMany({ name, location, date, totalhours });
+    const result = await collection.insertOne({ name, location, date, totalhours });
 
-    Res.json({ Messages: "Updated events" });
+    Res.json({ message: "Event added successfully", result });
   } catch (error) {
-    console.error("error inserting the event", error);
+    console.error("Error inserting the event", error);
     Res.status(500).json({ error: "Internal server error" });
   }
 });

@@ -1,11 +1,13 @@
 import { fetchMenuData, fetchEventData } from './site.js';
+const eventsTable = document.querySelector('.eventsTable');
+const menuTable = document.querySelector('.menuTable');
+const eventForm = document.querySelector('.eventform');
+const menuForm = document.querySelector('.menuform');
+const EventAddButton = document.querySelector('.add')
+const MenuAddButton = document.querySelector('.MenuAdd')
+
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const eventsTable = document.querySelector('.eventsTable');
-  const menuTable = document.querySelector('.menuTable');
-  const eventForm = document.querySelector('.eventform');
-  const menuForm = document.querySelector('.menuform');
-  const addButton = document.getElementsByClassName('.add')
 
   try {
     const events = await fetchEventData();
@@ -54,27 +56,73 @@ document.addEventListener('DOMContentLoaded', async () => {
         })
     })
 
-    eventForm.addEventListener('addButton', async () => {
+    EventAddButton.addEventListener('click', async () => {
+
         const eventName = document.getElementById('eventName').value;
         const eventLocation = document.getElementById('eventLocation').value;
         const eventDate = document.getElementById('eventDate').value;
         const eventHours = document.getElementById('eventHours').value;
-  
+
         try {
-          const Res = await fetch('/api/events', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({eventName, eventLocation, eventDate, eventHours})
-          });
+            const response = await fetch('/api/Events', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: eventName,
+                    location: eventLocation,
+                    date: eventDate,
+                    totalhours: eventHours
+                })
+            });
+
+            location.reload();
+
         } catch (error) {
-          console.error('Error adding new event:', error);
+            console.error('Error adding new event:', error);
         }
 
+        document.getElementById('eventName').value = '';
+        document.getElementById('eventLocation').value = '';
+        document.getElementById('eventDate').value = '';
+        document.getElementById('eventHours').value = '';
     });
 
-  } catch (error) {
+
+    MenuAddButton.addEventListener('click', async () => {
+
+        const itemName = document.getElementById('itemName').value;
+        const itemDescription = document.getElementById('itemDescription').value;
+        const itemPrice = document.getElementById('itemPrice').value;
+
+        try {
+            const response = await fetch('/api/Menu', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: itemName,
+                    description: itemDescription,
+                    price: itemPrice
+                })
+            });
+
+            location.reload();
+
+        } catch (error) {
+            console.error('Error adding new event:', error);
+        }
+
+        document.getElementById('itemName').value = '';
+        document.getElementById('itemDescription').value = '';
+        document.getElementById('itemPrice').value = '';
+    });
+
+
+} catch (error) {
     console.error('Error fetching data:', error);
-  }
+}
 });
+

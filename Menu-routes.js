@@ -22,10 +22,10 @@ router.get("/", async (_, Res) => {
 // letting the admin add menu items
 // I can't test this right now don't know how to in endpoint
 router.post("/", async (Req, Res) => {
-  const { name, discription, price, iamgeurl } = Req.body;
+  const { name, description, price, imageurl } = Req.body;
   const collection = await getCollection("FoodTruckApi", "MenuData");
 
-  const Result = await collection.insertMany({ name, discription, price, imageurl });
+  const Result = await collection.insertOne({ name, description, price, imageurl });
   Res.json({ message: "Updated Menu" });
 });
 
@@ -37,7 +37,7 @@ router.put("/:id", async (Req, Res) => {
 
   const MenuItems = await collection.findOne({ _id: new ObjectId(id) });
   
-  const { name, imageUrl, description, price } = Req.body;
+  const { name, imageurl, description, price } = Req.body;
 
   if (!MenuItems) {
     return Res.status(404).json({ error: "Menu item not found" });
