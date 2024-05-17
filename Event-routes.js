@@ -26,7 +26,7 @@ router.get("/:id", async (Req, Res) => {
 
     const { name, location, date, hour } = events;
 
-    Res.json(name, location, date, hour);
+    Res.json(name, location, date, hour, imageurl);
   } catch (error) {
     console.error("error fetching events", error);
 
@@ -36,10 +36,10 @@ router.get("/:id", async (Req, Res) => {
 
 router.post("/", async (Req, Res) => {
   try {
-    const { name, location, date, totalhours } = Req.body;
+    const { name, location, date, totalhours, imageurl } = Req.body;
     const collection = await getCollection("FoodTruckApi", "EventsData");
 
-    const result = await collection.insertOne({ name, location, date, totalhours });
+    const result = await collection.insertOne({ name, location, date, totalhours, imageurl });
 
     Res.json({ message: "Event added successfully", result });
   } catch (error) {
@@ -50,22 +50,23 @@ router.post("/", async (Req, Res) => {
 
 
 router.put("/:id", async (Req, Res) => {
-  const { id } = Req.params;
-  const collection = await getCollection("FoodTruckApi", "EvemtsData");
+  const { _id } = Req.params;
+  const collection = await getCollection("FoodTruckApi", "EventsData");
 
   const MenuItems = await collection.findOne({ _id: new ObjectId(id) });
   
-  const { name, date, location, totalhours } = Req.body;
+  const { name, date, location, totalhours, imageurl } = Req.body;
 
   if (!MenuItems) {
     return Res.status(404).json({ error: "Events item not found" });
   }
 
   const UpdateFields = {
-    Name: name,
+    name: name,
     date: date,
     location: location,
-    totalhours: totalhours
+    totalhours: totalhours,
+    imageurl: imageurl
   };
 
   const result = await collection.updateOne(
@@ -73,18 +74,18 @@ router.put("/:id", async (Req, Res) => {
     { $set: UpdateFields }, // this might have to change too something else so that admin able to change all the items
   );
 
-  Res.json({ Message: "Update complete thank you",id: "id", updateFields: UpdateFields }); // same goes here might have to change complete
+  Res.json({ Message: "Update complete thank you",id: "_id", updateFields: UpdateFields }); // same goes here might have to change complete
 });
 
 router.delete("/:id", async (Req, Res) => {
 
-  const { id } = Req.params;
+  const { _id } = Req.params;
   const collection = await getCollection("FoodTruckApi", "EventsData");
 
-  const deletedItem = await collection.findOne({ _id: new ObjectId(id) });
+  const deletedItem = await collection.findOne({ _id: new ObjectId(_id) });
 
 
-  if (!ObjectId.isValid(id)) {
+  if (!ObjectId.isValid(_id)) {
     return Res.status(404).json({ error: "Could not find item id" });
   }
   

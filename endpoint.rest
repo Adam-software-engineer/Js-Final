@@ -1,6 +1,6 @@
 @port = 3000 
 @Menuid = 6644f0a86bf9089c775fa94e
-@Eventsid = 6644f50d6bf9089c775fa952
+@Eventsid = 6644f2fc6bf9089c775fa955
 
 
 GET http://localhost:{{port}}/api/Events

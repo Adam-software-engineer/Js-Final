@@ -44,7 +44,7 @@ router.put("/:id", async (Req, Res) => {
   }
 
   const UpdateFields = {
-    Name: name,
+    name: name,
     imageUrl: imageUrl,
     description: description,
     price: price
