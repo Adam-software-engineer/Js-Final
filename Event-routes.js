@@ -53,7 +53,7 @@ router.put("/:id", async (Req, Res) => {
   const { _id } = Req.params;
   const collection = await getCollection("FoodTruckApi", "EventsData");
 
-  const MenuItems = await collection.findOne({ _id: new ObjectId(id) });
+  const MenuItems = await collection.findOne({ _id: new ObjectId(_id) });
   
   const { name, date, location, totalhours, imageurl } = Req.body;
 
