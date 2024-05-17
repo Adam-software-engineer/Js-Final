@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           event.imageurl,
           event.location,
           event.date,
-          event.totalhours
+          event.totalhours,
         );
         document.body.appendChild(card);
       });

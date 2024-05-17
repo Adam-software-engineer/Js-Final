@@ -43,8 +43,9 @@ router.put("/:id", async (Req, Res) => {
     return Res.status(404).json({ error: "Menu item not found" });
   }
 
+  // this is nameing all the updatefields that are needed
   const UpdateFields = {
-    name: name,
+    Name: name,
     imageUrl: imageUrl,
     description: description,
     price: price
@@ -52,37 +53,34 @@ router.put("/:id", async (Req, Res) => {
 
   const result = await collection.updateOne(
     { _id: new ObjectId(id) },
-    { $set: UpdateFields }, // this might have to change too something else so that admin able to change all the items
+    { $set: UpdateFields }, 
   );
 
-  Res.json({ Message: "Update complete thank you",id: "id", updateFields: UpdateFields }); // same goes here might have to change complete
+  Res.json({ Message: "Update complete thank you",id: "id", updateFields: UpdateFields }); 
 });
 
 
 //this is working 
 router.delete("/:id", async (Req, Res) => {
-  try {
-    const { id } = Req.params;
 
-    if (!ObjectId.isValid(id)) {
-      return Res.status(400).json({ error: "Invalid ID format" });
-    }
+  const { id } = Req.params;
+  const collection = await getCollection("FoodTruckApi", "MenuData");
 
-    const collection = await getCollection("FoodTruckApi", "MenuData");
-    const itemToDelete = await collection.findOne({ _id: new ObjectId(id) });
+  const deletedItem = await collection.findOne({ _id: new ObjectId(id) });
 
-    if (!itemToDelete) {
-      console.log("Item not found for ID:", id);
-      return Res.status(404).json({ error: "Menu item not found" });
-    }
 
-    await collection.deleteOne({ _id: new ObjectId(id) });
-
-    Res.json({ message: "Menu item deleted successfully" });
-  } catch (error) {
-    console.error("Error deleting the menu item", error);
-    Res.status(500).json({ error: "Internal server error" });
+  if (!ObjectId.isValid(id)) {
+    return Res.status(404).json({ error: "Could not find item id" });
   }
+
+  await collection.deleteOne({ _id: new ObjectId(id) });
+
+  if (!deletedItem) {
+    console.log("Item not found for ID:", id);
+    return res.status(404).json({ error: "Menu item not found" });
+  }
+
+  Res.json({ Message: "Menu item deleted thank you" });
 });
 
 module.exports = router;

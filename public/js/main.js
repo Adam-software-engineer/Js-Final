@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 dailySpecialCard.querySelector('p').textContent = randomMenuItem.description;
                 dailySpecialCard.querySelector('h3').textContent = randomMenuItem.name;
             }
+            
             const popularEventCard = document.querySelector('.rightcolumn .card:nth-child(2)');     
+            
             if (popularEventCard) {
                 const popularEventImgDiv = popularEventCard.querySelector('.fakeimg');
                 popularEventImgDiv.innerHTML = ''; 

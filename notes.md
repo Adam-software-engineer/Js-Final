@@ -1,11 +1,8 @@
-# this is the notes for the page
+# the only thing that is left is too build out the update 
 
-# todo's
 
-1. got to make the site.js work with the first page index page this page should bring up a random event and menu everytime the page refreshes
+# grab the id the same that we are doing it for the delete but then just call a different fucntion put instead of delete for the modual
 
-2. the menu page should bring up all the menu items and should also have a events all brought up at the same time
 
-3. the admin page should bring up all the items for menu and events and they should be able to edit them and delte them but also should be able to add new ones
-
-# errors or probloms
+# if doesn't work it is problomy going to be an issue within the router 
+# if getting a hex error just change the var too _id that should fix it

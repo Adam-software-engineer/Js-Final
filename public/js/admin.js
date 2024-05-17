@@ -1,4 +1,10 @@
+
+// imports from site.js for the grab data stuff
 import { fetchMenuData, fetchEventData } from './site.js';
+
+
+
+// all the grabs for the queryselectors
 const eventsTable = document.querySelector('.eventsTable');
 const menuTable = document.querySelector('.menuTable');
 const eventForm = document.querySelector('.eventform');
@@ -13,6 +19,7 @@ const MenuDeleteButton = document.querySelector('.MenuDelete')
 document.addEventListener('DOMContentLoaded', async () => {
 
   try {
+    // fetching both the event and menu data
     const events = await fetchEventData();
     const menu = await fetchMenuData();
 
@@ -23,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <td>${event.location}</td>
         <td>${event.date}</td>
         <td>${event.totalhours}</td>
-        <td style="display:none;">${event._id}</td>
+        <td style="display:none;">${event._id}</td> 
       `;
     });
 
@@ -206,9 +213,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         const id =  document.getElementById('eventid').value;
 
-        console.log(id);
-
-
         try{
             const response = await fetch(`/api/Events/${id}`, {
                 method: 'DELETE',
@@ -227,8 +231,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     MenuDeleteButton.addEventListener('click', async (e) => {
 
         const id =  document.getElementById('menuid').value;
-
-
 
         try{
             const response = await fetch(`/api/Menu/${id}`, {
