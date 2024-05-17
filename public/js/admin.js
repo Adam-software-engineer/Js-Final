@@ -141,15 +141,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('itemImageurl').value = '';
     });
 
-    EventUpdateButton.addEventListener('click', async (_id) =>{
+    EventUpdateButton.addEventListener('click', async () =>{
         const eventName = document.getElementById('eventName').value;
         const eventLocation = document.getElementById('eventLocation').value;
         const eventDate = document.getElementById('eventDate').value;
         const eventHours = document.getElementById('eventHours').value;
         const eventImageurl = document.getElementById('eventImageurl').value;
+        const id =  document.getElementById('eventid').value;
 
         try {
-            const response = await fetch(`/api/Events/${_id}`, {
+            const response = await fetch(`/api/Events/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -176,15 +177,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('eventImageurl').value = '';
     })
 
-    MenuUpdateButton.addEventListener('click', async (_id) => {
+    MenuUpdateButton.addEventListener('click', async () => {
 
         const itemName = document.getElementById('itemName').value;
         const itemDescription = document.getElementById('itemDescription').value;
         const itemPrice = document.getElementById('itemPrice').value;
         const itemImageurl = document.getElementById('itemImageurl').value;
+        const id =  document.getElementById('menuid').value;
+        
 
         try {
-            const response = await fetch(`/api/Menu/${_id}`, {
+            const response = await fetch(`/api/Menu/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

@@ -45,8 +45,8 @@ router.put("/:id", async (Req, Res) => {
 
   // this is nameing all the updatefields that are needed
   const UpdateFields = {
-    Name: name,
-    imageUrl: imageUrl,
+    name: name,
+    imageurl: imageurl,
     description: description,
     price: price
   };
