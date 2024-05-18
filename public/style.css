@@ -1,303 +1,307 @@
 /* James css XD */
 
 html {
-    background-color: #222831; /* background color */
+  background-color: #222831; /* background color */
 }
 body {
-    font-family: Verdana, 'Arial Black', serif;
-    font-size: 1em;
-    color: lightgray;
+  font-family: Verdana, "Arial Black", serif;
+  font-size: 1em;
+  color: lightgray;
 }
 header {
-    padding: 1px;
-    border: 14px;
+  padding: 1px;
+  border: 14px;
 }
 nav {
-    background-color: #393e46;
+  background-color: #393e46;
 }
 img {
-    border: 1px;
-    border-style: none;
-    border-color: black;
+  border: 1px;
+  border-style: none;
+  border-color: black;
 }
 
 /* Text */
 ul {
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
 }
 ol {
-    padding: 0px;
-    margin: 0px;
-    margin-left: 30px;
-    list-style-type: none
+  padding: 0px;
+  margin: 0px;
+  margin-left: 30px;
+  list-style-type: none;
 }
 
 a {
-    color: #4CAF50;
-    text-decoration: none;
-    text-align: center;
+  color: #4caf50;
+  text-decoration: none;
+  text-align: center;
 }
 a:hover {
-    color: #327536;
+  color: #327536;
 }
 .heading h1 {
-    margin-right: 25px;
-    font-size: 1.6em;
-    font-style: italic;
+  margin-right: 25px;
+  font-size: 1.6em;
+  font-style: italic;
 }
 h2 {
-    font-size: 1.3em;
-    font-style: italic;
+  font-size: 1.3em;
+  font-style: italic;
 }
 h3 {
-    font-size: 1em;
-    font-style: italic;
+  font-size: 1em;
+  font-style: italic;
 }
 
 /* Classes and IDs */
 .wrapper {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* nav style */
 .topnav {
-    overflow: hidden;
-    background-color: #393e46;
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 5px;
+  overflow: hidden;
+  background-color: #393e46;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
 }
 /* nav links */
 .topnav a {
-    float: right;
-    color: white;
-    padding: 14px 30px;
+  float: right;
+  color: white;
+  padding: 14px 30px;
 }
 .topnav img {
-    float: left;
-    margin: 5px 15px;
+  float: left;
+  margin: 5px 15px;
 }
 .topnav h2 {
-    float: left;
-    margin: 10px 25px;
-    color: white;
+  float: left;
+  margin: 10px 25px;
+  color: white;
 }
 .topnav a:hover {
-    border-radius: 5px;
-    background-color: #45a049;
+  border-radius: 5px;
+  background-color: #45a049;
 }
 
 .sticky {
-    position: fixed;
-    top: 0;
-    width: 1000px;
+  position: fixed;
+  top: 0;
+  width: 1000px;
 }
 .sticky + .content {
-    padding-top: 60px;
+  padding-top: 60px;
 }
 
 /* Form style */
 .form {
-    margin: 0 auto;
-    width: 100%;
-    padding: 20px;
-    background-color: #222831;
-    border-radius: 5px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+  background-color: #222831;
+  border-radius: 5px;
 }
 .form label {
-    display: block;
+  display: block;
 }
 .form input[type="text"],
 .form input[type="email"],
 .form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
 }
 .form input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 .form input[type="submit"]:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 .form input[type="button"] {
-    background-color: rgb(160, 0, 0);
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+  background-color: rgb(160, 0, 0);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 .form input[type="button"]:hover {
-    background-color: rgb(121, 0, 0);
+  background-color: rgb(121, 0, 0);
 }
 
-th, td {
-    border: none;
-    padding: 10px 20px;
-    border-bottom: 2px solid #45a049;
-    font-size: 14px;
+th,
+td {
+  border: none;
+  padding: 10px 20px;
+  border-bottom: 2px solid #45a049;
+  font-size: 14px;
 }
 
 /* Create two unequal columns that floats next to each other */
-.leftcolumn {   
-    float: left;
-    width: 75%;
+.leftcolumn {
+  float: left;
+  width: 75%;
 }
 .rightcolumn {
-    float: left;
-    width: 25%;
-    padding-left: 15px;
+  float: left;
+  width: 25%;
+  padding-left: 15px;
 }
 
-.left {   
-    float: left;
-    width: 50%;
+.left {
+  float: left;
+  width: 50%;
 }
 .right {
-    float: left;
-    width: 50%;
-    padding-left: 5px;
+  float: left;
+  width: 50%;
+  padding-left: 5px;
 }
 
 .menucard {
-    float: left;
-    width: 25%;
-    padding: 10px;
+  float: left;
+  width: 20%;
+  padding: 10px;
 }
 
 /* Fake image */
 .fakeimg {
-    background-color: darkgray;
-    width: auto;
-    padding: 20px;
-    color: black;
+  background-color: darkgray;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  color: black;
 }
 
 /* Add a card effect for articles */
 .card {
-    background-color: #303841;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 5px;
+  background-color: #303841;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
 }
 
 .card img {
-    Height: auto;
-    width: 100%;
+  height: auto;
+  width: 100%;
 }
 
 /* Clear floats after the columns */
 .row::after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .footer {
-    text-align: center;
-    background: #393e46;
-    margin-top: 10px;
-    border-radius: 5px;
-    padding: 1px;
+  text-align: center;
+  background: #393e46;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 1px;
 }
 
 /* Responsive layout */
 @media screen and (max-width: 1000px) {
-    .leftcolumn, .rightcolumn {
-        width: 100%;
-        padding: 0;
-    }
-    .wrapper {
-        width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 800px;
-    }
-    .sticky + .content {
-        padding-top: 60px;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-    }
+  .leftcolumn,
+  .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+  .wrapper {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 800px;
+  }
+  .sticky + .content {
+    padding-top: 60px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .leftcolumn, .rightcolumn {
-        width: 100%;
-        padding: 0;
-    }
-    .topnav a {
-        width: 100%;
-        padding: 8px;
-    }
-    .topnav h2 {
-        display: block;
-        margin: 5px;
-    }
-    .wrapper {
-        width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 600px;
-    }
-    .sticky + .content {
-        padding-top: 60px;
-    }
+  .leftcolumn,
+  .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+  .topnav a {
+    width: 100%;
+    padding: 8px;
+  }
+  .topnav h2 {
+    display: block;
+    margin: 5px;
+  }
+  .wrapper {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 600px;
+  }
+  .sticky + .content {
+    padding-top: 60px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .wrapper {
-        width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 400px;
-    }
-    .sticky + .content {
-        padding-top: 60px;
-    }
+  .wrapper {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 400px;
+  }
+  .sticky + .content {
+    padding-top: 60px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    /* Further adjustments for very small screens */
-    .topnav {
-        overflow: hidden;
-    }
-    .topnav a {
-        width: 100%;
-    }
+  /* Further adjustments for very small screens */
+  .topnav {
+    overflow: hidden;
+  }
+  .topnav a {
+    width: 100%;
+  }
 }
 
 /* Other */
 .class {
-    clear: both;
+  clear: both;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }

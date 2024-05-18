@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     desc.textContent = description;
 
     const small = document.createElement("p");
-    small.innerHTML = `<small>${price}</small>`;
+    small.textContent = price;
 
     card.appendChild(h2);
     card.appendChild(fakeimg);
